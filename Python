@@ -1,0 +1,33 @@
+def bindec(binary):
+    decimal = 0
+    sbin = str(binary)
+    lbin = len(sbin)
+    for x in range(lbin):
+        last = sbin[(lbin-(x+1))]
+        decimal += int(last)*(2**x)
+    return(decimal)
+
+def decbin(decimal):
+    binary = 0
+    count = 0
+    while decimal > 0:
+        conv = decimal%2
+        decimal = decimal//2
+        binary += conv * (10**count)
+        count += 1
+    return(binary)
+    
+def binadd(bin1, bin2):
+    print(decbin(bindec(bin1) + bindec(bin2)))
+
+
+def hexdec(hex):
+    decimal = 0
+    shex = str(hex)
+    lhex = len(shex)
+    for x in range(lhex):
+        last = shex[(lhex-(x+1))]
+        decimal += int(last)*(16**x)
+    print(decimal)
+
+binadd(1011,1011)
