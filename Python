@@ -27,7 +27,28 @@ def hexdec(hex):
     lhex = len(shex)
     for x in range(lhex):
         last = shex[(lhex-(x+1))]
-        decimal += int(last)*(16**x)
+        dlast = hexabet(last)
+        decimal += int(dlast)*(16**x)
     print(decimal)
 
+def hexabet(hex):
+    hex = str(hex)
+    if hex == 'a' or hex == 'A':
+        return 10
+    elif hex == 'b' or hex == 'B':
+        return 11
+    elif hex == 'c' or hex == 'C':
+        return 12
+    elif hex == 'd' or hex == 'D':
+        return 13
+    elif hex == 'e' or hex == 'E':
+        return 14
+    elif hex == 'f' or hex == 'F':
+        return 15
+    elif hex.isalpha() == True:
+        return 0
+    else:
+        return hex
+
+hexdec('ac3')
 binadd(1011,1011)
