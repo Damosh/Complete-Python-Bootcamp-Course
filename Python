@@ -29,7 +29,21 @@ def hexdec(hex):
         last = shex[(lhex-(x+1))]
         dlast = hexabet(last)
         decimal += int(dlast)*(16**x)
-    print(decimal)
+    return(decimal)
+
+def dechex(decimal):
+    hex = []
+    count = 0
+    while decimal > 0:
+        conv = decimal%16
+        decimal = decimal//16
+        if conv > 9:
+            conv=hexabet(conv)
+        conv = str(conv)
+        hex.extend(conv)
+        count += 1
+    hex.reverse()
+    return hex
 
 def hexabet(hex):
     hex = str(hex)
@@ -48,7 +62,32 @@ def hexabet(hex):
     elif hex.isalpha() == True:
         return 0
     else:
-        return hex
+        hex = int(hex)
+        if hex == 10:
+            return 'A'
+        elif hex == 11:
+            return 'B'
+        elif hex == 12:
+            return 'C'
+        elif hex == 13:
+            return 'D'
+        elif hex == 14:
+            return 'E'
+        elif hex == 15:
+            return 'F'
+        else:
+            return hex
 
-hexdec('ac3')
+def binhex(bin):
+    conv = bindec(bin)
+    conv = dechex(conv)
+    print (''.join(map(str, conv)))
+
+def hexbin(hex):
+    conv = hexdec(hex)
+    conv = decbin(conv)
+    print(conv)
+
 binadd(1011,1011)
+binhex(101011000011)
+hexbin('ac3')
