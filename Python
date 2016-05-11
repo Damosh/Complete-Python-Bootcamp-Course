@@ -78,6 +78,25 @@ def hexabet(hex):
         else:
             return hex
 
+def octdec(oct):
+    decimal = 0
+    soct = str(oct)
+    loct = len(soct)
+    for x in range(loct):
+        last = soct[(loct-(x+1))]
+        decimal += int(last)*(8**x)
+    return(decimal)
+
+def decoct(decimal):
+    oct = 0
+    count = 0
+    while decimal > 0:
+        conv = decimal%8
+        decimal = decimal//8
+        oct += conv * (10**count)
+        count += 1
+    return(oct)
+
 def binhex(bin):
     conv = bindec(bin)
     conv = dechex(conv)
@@ -88,6 +107,30 @@ def hexbin(hex):
     conv = decbin(conv)
     print(conv)
 
+def binoct(bin):
+    conv = bindec(bin)
+    conv = decoct(conv)
+    print(conv)
+
+def octbin(oct):
+    conv = octdec(oct)
+    conv = decbin(conv)
+    print(conv)
+
+def hexoct(hex):
+    conv = hexdec(hex)
+    conv = decoct(conv)
+    print(conv)
+
+def octhex(oct):
+    conv = octdec(oct)
+    conv = dechex(conv)
+    print(''.join(map(str, conv)))
+
 binadd(1011,1011)
 binhex(101011000011)
 hexbin('ac3')
+binoct(11100)
+octbin(34)
+hexoct('A3')
+octhex(243)
