@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Fuck you Jack</h1>
+<p>You Tyrannical Dictator</p>
+
+<script>
+
+function bindec(binary) {
+  var decimal = 0;
+  var sbin = String(binary);  
+  for (var x = 0; x < sbin.length; x++) {
+    var last = sbin.substr(sbin.length - (x+1), 1);
+    decimal = decimal + (parseInt(last) * Math.pow(2, x));
+  };
+  document.write(decimal);
+  
+}
+bindec(prompt("Enter a binary string:"));
+
+
+</script>
+
+</body>
+</html>
